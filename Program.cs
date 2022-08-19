@@ -1,13 +1,12 @@
 ﻿using System;
 
 
-static void Main(string[] args)
-{
-    Console.WriteLine("Welcome to the Enthusiastic Moose Simulator!");
-    Console.WriteLine("--------------------------------------------");
-    Console.WriteLine();
 
-}
+Console.WriteLine("Welcome to the Enthusiastic Moose Simulator!");
+Console.WriteLine("--------------------------------------------");
+Console.WriteLine();
+
+
 
 MooseSays("Hello!");
 
