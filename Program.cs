@@ -23,6 +23,12 @@ void Main()
     SecretQuestion();
 }
 
+//phase 9
+//Our moose is finally both enthusiastic and inquisitive, 
+//but the code for asking each question is a little redundant.
+//Refactor the app to reduce the redundancy in the code.
+
+
 void CanadaQuestion()
 {
     bool isTrue = MooseAsks("Is Canada real?");
