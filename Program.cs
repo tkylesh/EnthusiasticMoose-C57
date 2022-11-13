@@ -27,6 +27,7 @@ void Main()
 //Our moose is finally both enthusiastic and inquisitive, 
 //but the code for asking each question is a little redundant.
 //Refactor the app to reduce the redundancy in the code.
+//create a method that encapsulates any duplicated code?
 
 
 void CanadaQuestion()
