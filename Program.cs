@@ -1,6 +1,7 @@
 ﻿using System;
-
-
+using System.Collections.Generic;
+using System.Collections.Immutable;
+using System.ComponentModel;
 
 Main();
 
@@ -14,13 +15,11 @@ void Main()
     MooseSays("H I, I'M  E N T H U S I A S T I C !");
     MooseSays("I really am enthusiastic");
 
-
-
-    // Ask a question
-    CanadaQuestion();
-    EnthusiasticQuestion();
-    LoveCSharpQuestion();
-    SecretQuestion();
+    //ask a question
+    Question("Can dogs resist skritches?", "dog");
+    Question("Is Canada real?", "canada");
+    Question("Are you enthusiastic?", "enthusiastic");
+    Question("Do you want to know a secret?", "secret");
 }
 
 //phase 9
@@ -29,62 +28,84 @@ void Main()
 //Refactor the app to reduce the redundancy in the code.
 //create a method that encapsulates any duplicated code?
 
-
-void CanadaQuestion()
+var responses = new Dictionary<string, List<string>>()
 {
-    bool isTrue = MooseAsks("Is Canada real?");
-    // Console.WriteLine(isTrue);
-    if (isTrue)
+    {"dog", new List<string>(){"I think you're right about that!","Hmmm. That's Disappointing"}},
+    {"canada", new List<string>(){"Really? It seems very unlikely.","I KNEW IT!!!"}},
+    {"enthusiastic", new List<string>(){"Yay!","You should try it!"}},
+    {"secret", new List<string>(){"ME TOO!!! I love secrets...tell me one!","Oh, no...secrets are the best, I love to share them!"}}
+
+};
+
+void Question(string question, string topic)
+{
+    if (MooseAsks(question))
     {
-        MooseSays($"Really? it seems very unikely.");
+        MooseSays(responses[topic][0]);
     }
     else
     {
-        MooseSays("I Knew IT!!!");
+        MooseSays(responses[topic][1]);
     }
 }
 
-void EnthusiasticQuestion()
-{
-    bool isTrue = MooseAsks("Are you enthusiastic?");
-    // Console.WriteLine(isTrue);
-    if (isTrue)
-    {
-        MooseSays($"Yay!");
-    }
-    else
-    {
-        MooseSays("You should try it!!!");
-    }
-}
 
-void LoveCSharpQuestion()
-{
-    bool isTrue = MooseAsks("Do you love c# yet?");
-    // Console.WriteLine(isTrue);
-    if (isTrue)
-    {
-        MooseSays($"Good job sucking up to your instructor!");
-    }
-    else
-    {
-        MooseSays("You will...oh, yes, you will...");
-    }
-}
 
-void SecretQuestion()
-{
-    bool isTrue = MooseAsks("Do you want to know a secret?");
-    // Console.WriteLine(isTrue);
-    if (isTrue)
-    {
-        MooseSays($"ME TOO!!!! I love secrets...tell me one!");
-    }
-    else
-    {
-        MooseSays("Oh, no ...secrets are the best, I love to share them!");
-    }
-}
+// void CanadaQuestion()
+// {
+//     bool isTrue = MooseAsks("Is Canada real?");
+//     // Console.WriteLine(isTrue);
+//     if (isTrue)
+//     {
+//         MooseSays($"Really? it seems very unikely.");
+//     }
+//     else
+//     {
+//         MooseSays("I Knew IT!!!");
+//     }
+// }
+
+// void EnthusiasticQuestion()
+// {
+//     bool isTrue = MooseAsks("Are you enthusiastic?");
+//     // Console.WriteLine(isTrue);
+//     if (isTrue)
+//     {
+//         MooseSays($"Yay!");
+//     }
+//     else
+//     {
+//         MooseSays("You should try it!!!");
+//     }
+// }
+
+// void LoveCSharpQuestion()
+// {
+//     bool isTrue = MooseAsks("Do you love c# yet?");
+//     // Console.WriteLine(isTrue);
+//     if (isTrue)
+//     {
+//         MooseSays($"Good job sucking up to your instructor!");
+//     }
+//     else
+//     {
+//         MooseSays("You will...oh, yes, you will...");
+//     }
+// }
+
+// void SecretQuestion()
+// {
+//     bool isTrue = MooseAsks("Do you want to know a secret?");
+//     // Console.WriteLine(isTrue);
+//     if (isTrue)
+//     {
+//         MooseSays($"ME TOO!!!! I love secrets...tell me one!");
+//     }
+//     else
+//     {
+//         MooseSays("Oh, no ...secrets are the best, I love to share them!");
+//     }
+// }
 
 
 void MooseSays(string message)
@@ -118,6 +139,7 @@ void MooseSays(string message)
                        `^^` `^^^`
     ");
 }
+
 
 bool MooseAsks(string question)
 {
