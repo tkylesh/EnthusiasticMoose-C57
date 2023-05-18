@@ -11,15 +11,62 @@ void Main()
     Console.WriteLine("--------------------------------------------");
     Console.WriteLine();
 
-    // Let the moose speak!
-    MooseSays("H I, I'M  E N T H U S I A S T I C !");
-    MooseSays("I really am enthusiastic");
+    void MooseSays(string message)
+{
+    Console.WriteLine($@"
+                                      _.--^^^--,
+                                    .'          `\
+  .-^^^^^^-.                      .'              |
+ /          '.                   /            .-._/
+|             `.                |             |
+ \              \          .-._ |          _   \
+  `^^'-.         \_.-.     \   `          ( \__/
+        |             )     '=.       .,   \
+       /             (         \     /  \  /
+     /`               `\        |   /    `'
+     '..-`\        _.-. `\ _.__/   .=.
+          |  _    / \  '.-`    `-.'  /
+          \_/ |  |   './ _     _  \.'
+               '-'    | /       \ |
+                      |  .-. .-.  |
+                      \ / o| |o \ /
+                       |   / \   |    {message}
+                      / `^`   `^` \
+                     /             \
+                    | '._.'         \
+                    |  /             |
+                     \ |             |
+                      ||    _    _   /
+                      /|\  (_\  /_) /
+                      \ \'._  ` '_.'
+                       `^^` `^^^`
+    ");
+}
 
-    //ask a question
-    Question("Can dogs resist skritches?", "dog");
-    Question("Is Canada real?", "canada");
-    Question("Are you enthusiastic?", "enthusiastic");
-    Question("Do you want to know a secret?", "secret");
+
+
+    bool MooseAsks(string question)
+{
+    //ask the question
+    Console.Write($"{question} (Y/N): ");
+    //store the answer
+    string answer = Console.ReadLine().ToLower();
+
+    //while invalid answer continue to ask
+    while (answer != "y" && answer != "n")
+    {
+        Console.Write($"{question} (Y/N): ");
+        answer = Console.ReadLine().ToLower();
+    }
+    //if y return true otherwise return false;
+    if (answer == "y")
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 //phase 9
@@ -47,6 +94,17 @@ void Question(string question, string topic)
     {
         MooseSays(responses[topic][1]);
     }
+}
+
+    // Let the moose speak!
+    MooseSays("H I, I'M  E N T H U S I A S T I C !");
+    MooseSays("I really am enthusiastic");
+
+    //ask a question
+    Question("Can dogs resist skritches?", "dog");
+    Question("Is Canada real?", "canada");
+    Question("Are you enthusiastic?", "enthusiastic");
+    Question("Do you want to know a secret?", "secret");
 }
 
 
@@ -108,59 +166,4 @@ void Question(string question, string topic)
 // }
 
 
-void MooseSays(string message)
-{
-    Console.WriteLine($@"
-                                      _.--^^^--,
-                                    .'          `\
-  .-^^^^^^-.                      .'              |
- /          '.                   /            .-._/
-|             `.                |             |
- \              \          .-._ |          _   \
-  `^^'-.         \_.-.     \   `          ( \__/
-        |             )     '=.       .,   \
-       /             (         \     /  \  /
-     /`               `\        |   /    `'
-     '..-`\        _.-. `\ _.__/   .=.
-          |  _    / \  '.-`    `-.'  /
-          \_/ |  |   './ _     _  \.'
-               '-'    | /       \ |
-                      |  .-. .-.  |
-                      \ / o| |o \ /
-                       |   / \   |    {message}
-                      / `^`   `^` \
-                     /             \
-                    | '._.'         \
-                    |  /             |
-                     \ |             |
-                      ||    _    _   /
-                      /|\  (_\  /_) /
-                      \ \'._  ` '_.'
-                       `^^` `^^^`
-    ");
-}
 
-
-bool MooseAsks(string question)
-{
-    //ask the question
-    Console.Write($"{question} (Y/N): ");
-    //store the answer
-    string answer = Console.ReadLine().ToLower();
-
-    //while invalid answer continue to ask
-    while (answer != "y" && answer != "n")
-    {
-        Console.Write($"{question} (Y/N): ");
-        answer = Console.ReadLine().ToLower();
-    }
-    //if y return true otherwise return false;
-    if (answer == "y")
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-}
